@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "alta-playground",
+  "private_key_id": "81cf99e731c469687a3e9de43b4ab70929af9954",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDR6NBqMLE1a5+r\nrl3umxEI5yfLYTRqB0C8iZESOCVQl3Im6XqaZhrte2Bbgy9UrSOgXLjZpjuqftXt\nC5NvGyNlUYE/QcArpY1allNhCbCW8hGAnFZBrfXvEnpvyb6bPWCcYKf8rdG4/6d8\nzpRE4/8o549F4bPjpDcZxhz0KE0M9kRkeftSJhdITOZe3gSsQBfmKTxHnRev1mP5\nBdhh8qqeHHTsQ5r5h1c7EN5zV8bGOkoF5N/VTrbjGIPaf7X2FwYA10lSScFqGbVd\nJSeRxqXpboVnmSPrQggwE4hhpe5igaFXAuW1eirPuY3vFQTAnP3tBczj6lIllDC7\nPCn5JP+5AgMBAAECggEADs0tJxPEZykt4ugCeSEHmDpeiL2TuddFlhXYPDHn1bE8\nLCjCC7Gf+/d7cbCELaMg1D29jiFl6y2S7apnjMnb2tjetYRwJdPAbi8T9Y9+m4I5\nwDkl7u8ynJdPuWK/NUikb5p0NgHWvEYQvCD//QSbuTls1adm7Som9YMOBxxxZHS3\nZNqGFFK1yrgtYbalTIftBoZTsD3eu8+H4N8RRd3WE+tuQX/G4TMA0otiNeyWE6FN\n8WAoV98brB7euZfutBwhCS6if3FsdXreKs7QZOsRE7YL8HT88o+/KLp/B4T0FTN4\n1VJ/6ZyXXXFAoMvy8n1Sw/hiT+DVZvMxqqHrzsELoQKBgQDua2VMu3VNGjwW/Itt\nPyVp7FR9uo0yl88vPv22X0xJiYYZ0+BJwD+sTSxt0VczfKyD70vTBBKi2EvxK86U\nCGsQOTP5oNvuQkL7mpMqfDjt08eUM2LiiuNF7iwFR5pJOlIDJuiaoHRKDAm6efaf\nkLBsfUa1iYAhhCJIthG16Q0+0QKBgQDhYz0KuJrRm2DIaQKcyjL0MYMwcSOeCcNH\nmDOVTrd/75F8L0A+iu07affz+WMjnD1D3o8YJO1iralrM2KM4eU7U5LD+rj9OHed\nraGrHNAK4vi2baXl4wLw7h9rnOR14a1oNzPjH/aovjlJtkKuHqrBzxM8gnHDgxGQ\n1ghYr/l8aQKBgFxxkdadvM7HhFMZWupiGJyogN47LjJWwIO+Ndu3ubmttCxhhc6y\n1z10suxlxhz1k2KYr1rDcoJnwZJifPfTB8hDlc6Nu5j3YkdyWOuZPO2iNvlUr1vN\npG/h+HmXmNAZ5+DG/luuKUjowADo92JJVM7MCFWtWdwlArIUvms9UOBxAoGBAMz6\n5yIgAFWPPTcnIcQctLiXaxucWes6L8qmJous2oBVDfhmNMRsrxKw7luJvNs/Fgzq\nlTM9KlPrYsBnLEK6kzMgb8Mi/Cj3uPnDVtv7SU4NXGr1T8LCcgNSXWsOdkyrYXz9\nb4gporeWwR1D0GLw6xV2UaVfcT2Br3EM5uxZpsm5AoGAbcUjpit6iEvYSAE6CR5M\ngbttsGh6SGo75DD17sYDgaqn+JwGhAwAVdTLKDBQSAj+jbJj65KUKO4gn3hugrtl\nTRO04LbxP8aqoS2YKXFc99SdQDfsUNB0p3CRVZKRW2hwEX/vZWafWBjXf8vRZeHX\n6c9E3WbDbZMnqcS8Hp3dD+U=\n-----END PRIVATE KEY-----\n",
+  "client_email": "alta-playground@appspot.gserviceaccount.com",
+  "client_id": "102144971330361502631",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alta-playground%40appspot.gserviceaccount.com"
+}

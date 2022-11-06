@@ -1,0 +1,14 @@
+service: alta-scraper
+runtime: custom
+env: flex
+entrypoint: gunicorn -b :$PORT app:app --timeout 180
+
+resources:
+  cpu: 2
+  memory_gb: 8
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 20
+  cpu_utilization:
+    target_utilization: 0.8
