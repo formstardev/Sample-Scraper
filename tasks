@@ -1,0 +1,84 @@
+const extensionBody: ApiCallBody = async ({ row, db, change, ref }) => {
+    // feel free to add your own code logic here
+    try {
+      const { CloudTasksClient } = require('@google-cloud/tasks');
+      // Instantiates a client.
+      const client = new CloudTasksClient();
+      // TODO(developer): Uncomment these lines and replace with your values.
+      const project = 'alta-etl';
+      const queue = 'vendors-catalogs-tasks';
+      const location = 'us-central1';
+      const url = 'https://altasystems.tasks.cloud/functions/';
+      const inSeconds = 180;
+  
+      // Construct the fully qualified queue name.
+      const parent = client.queuePath(project, location, queue);
+      
+      if (row.status === "New") {
+        let doc = await ref.parent.parent.get();
+        let vendor = await ref.parent.parent.parent.parent.get();
+        let payload_object = {
+          catalogUrl: doc.data().catalogUrl,
+          catalogType: doc.data().type,
+          firestoreTaskId: ref.path
+        };
+       let payload = "";
+       payload = JSON.stringify(payload_object);
+        let name = '';
+  
+        const task = {
+          httpRequest: {
+            headers: {
+              "Content-Type": "application/json"
+            },
+            httpMethod: 'POST',
+            url,
+            body: '',
+          },
+          scheduleTime: {}
+        };
+        if (payload) {
+          task.httpRequest.body = Buffer.from(payload).toString('base64');
+        }
+
+        if (inSeconds) {
+          // The time when the task is scheduled to be attempted.
+          task.scheduleTime = {
+            seconds: inSeconds + Date.now() / 1000,
+          };
+        }
+  
+        // Send create task request.
+        console.log('Sending task:');
+        console.log(task);
+        const request = { parent: parent, task: task };
+        const [response] = await client.createTask(request);
+        console.log(`Created task ${response.name}`);
+        let array = response.name.split("/");
+        name = vendor.data().name + " - " + doc.data().brand + " - " + new Date().toString();
+        ref.update({ status: "Scheduled", gcsTaskId: array[7], name: name });
+  
+      }
+      else if (row.status === "Cancelled") {
+        let taskName = 'projects/alta-etl/locations/us-central1/queues/vendors-catalogs-tasks/tasks/';
+        await client.deleteTask({ name: taskName + row.gcsTaskId });
+        console.log(`Deleted task`);
+        ref.update({ status: "Deleted" });
+      }
+      else if (row.status === "Completed" || row.status === "Errored") {
+        ref.parent.parent.update({ lastRun: new Date() });
+        let doc = await ref.parent.parent.get();
+        if (doc.data().isInactive) return null;
+        else {
+          let array = doc.data().actorSchedule.split(" ");
+          if (array[1] === "Day") array[1] = "1";
+          let msscheduleTime = row.scheduleTime._seconds * 1000 + array[1] * 3600000 * 24;
+          console.log("row.scheduleTime._seconds-----------:::", row.scheduleTime._seconds)
+          ref.parent.add({ status: "New", scheduleTime: new Date(msscheduleTime)});
+        }
+      }
+    } catch (error) {
+      console.log("-----------<<<<<---------->>>>>--------:::::::",error);
+    }
+    return null;
+  }
